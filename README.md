@@ -1,0 +1,2 @@
+# graylog
+gray-log-kubernetes
