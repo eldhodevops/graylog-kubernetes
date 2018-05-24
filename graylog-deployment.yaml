@@ -1,0 +1,34 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: graylog
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        service: graylog
+    spec:
+      containers:
+      - env:
+        - name: GRAYLOG_WEB_ENDPOINT_URI
+          value: http://graylog/api
+        - name: GRAYLOG_PASSWORD_SECRET
+          value: ******
+        - name: GRAYLOG_ROOT_PASSWORD_SHA2
+          value: 5D5E792708BFA15F0AB42E817B4E69379777D2722E0529DFB031C0B847DB137D
+        - name: GRAYLOG_ELASTICSEARCH_HOSTS
+          value: http://elasticsearchsrv:9200
+        #- name: GRAYLOG_MONGODB_URI
+         # value: http://mongodb//mongo/graylog
+        image: eldhodoc/graylogserver
+        name: graylog
+        ports:
+        - containerPort: 9000
+        - containerPort: 12201
+        resources: {}
+      restartPolicy: Always
+status: {}

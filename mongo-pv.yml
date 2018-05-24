@@ -1,0 +1,15 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: mongo-storage
+  labels:
+    type: mongo-data
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteMany
+  storageClassName: mongodata
+  persistentVolumeReclaimPolicy: Retain
+  hostPath:
+    path: "/graylog/data"
