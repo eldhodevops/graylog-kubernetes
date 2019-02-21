@@ -73,11 +73,6 @@ input(type="imfile" ruleset="infiles" Tag="mysql" File="/var/log/mysql/mysql.log
 Example Array-graylog.conf:
 
 `module(load="imfile" PollingInterval="10") #needs to be done just once
-# For each file to send
-# input(type="imfile" ruleset="infiles" Tag="<APP_NAME_OF_FILE1>" File="<PATH_TO_FILE1>" StateFile="<UNIQUE_FILE_ID>")
-# creating unique id by using bellow command
-#echo "/var/log/mysql/mysql.log" | md5sum - | cut -f1 -d" "
-
 input(type="imfile" ruleset="infiles" Tag="mysql" File="/var/log/mysql/mysql.log" StateFile="bd873967690fab14ffbaa462a34f8ac7" )
 #add the graylog server IP
 *.* @graylogsrv:514;RSYSLOG_SyslogProtocol23Format
