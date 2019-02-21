@@ -71,12 +71,11 @@ For each file to send
 input(type="imfile" ruleset="infiles" Tag="mysql" File="/var/log/mysql/mysql.log" StateFile="bd873967690fab14ffbaa462a34`
 
 Example Array-graylog.conf:
-
-`module(load="imfile" PollingInterval="10") #needs to be done just once
-input(type="imfile" ruleset="infiles" Tag="mysql" File="/var/log/mysql/mysql.log" StateFile="bd873967690fab14ffbaa462a34f8ac7" )
-#add the graylog server IP
-*.* @graylogsrv:514;RSYSLOG_SyslogProtocol23Format
-`
+--------------------------
+`module(load="imfile" PollingInterval="10") #needs to be done just once`
+`input(type="imfile" ruleset="infiles" Tag="mysql" File="/var/log/mysql/mysql.log" StateFile="bd873967690fab14ffbaa462a34f8ac7" )`
+`#add the graylog server IP`
+`*.* @graylogsrv:514;RSYSLOG_SyslogProtocol23Format`
 
 Configure log collection:
 -------------------------
